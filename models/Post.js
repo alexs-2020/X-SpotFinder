@@ -4,6 +4,7 @@ const { Schema, model } = require("mongoose");
 const postSchema = new Schema(
   {
     name: String,
+    img: String,
     decription: String,
   }
 );
