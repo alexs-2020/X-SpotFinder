@@ -24,7 +24,7 @@ const API_URL = "http://localhost:5005";
                     {posts.map((post) => {
                         return (
                             <div key={post._id} >
-                                <img src={post.img} />
+                                <img src={post.url} />
                                 <Link to={`/posts/${post._id}`}>
                                     <h3>{post.name}</h3>
                                 </Link>
