@@ -22,6 +22,9 @@ app.use("/api", isAuthenticated, allRoutes);
 const postsRouter = require('./routes/posts.routes');     // <== IMPORT
 app.use('/api', isAuthenticated, postsRouter); 
 
+const locationRouter = require('./routes/locations.routes');  
+app.use('/api', isAuthenticated, locationRouter); 
+
 const authRouter = require("./routes/auth.routes");          //  <== IMPORT
 app.use("/auth", authRouter);   
                           

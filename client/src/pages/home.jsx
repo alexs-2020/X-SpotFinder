@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar"
+import Mapbox from './map'
 
 export default function Home (){
 

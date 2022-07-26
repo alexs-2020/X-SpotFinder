@@ -22,7 +22,10 @@ function Navbar() {
         <>
           <Link to="/feed">
             <button>Feed</button>
-          </Link>       
+          </Link>    
+          <Link to="/map">
+            <button>Map</button>
+          </Link>      
            <Link to='/'>
           <button onClick={logoutUser}>Logout</button>
           <span>{user && user.name}</span>
