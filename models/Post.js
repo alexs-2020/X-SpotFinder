@@ -5,7 +5,7 @@ const postSchema = new Schema(
   {
     name: String,
     url: String,
-    decription: String,
+    description: String,
   }
 );
 
