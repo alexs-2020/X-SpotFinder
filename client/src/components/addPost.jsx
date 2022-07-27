@@ -40,8 +40,8 @@ function AddPost(props) {
   
       // axios.post(`${API_URL}/userprofile`, {pic:response.data.secure_url}, { headers: { Authorization: `Bearer ${storedToken}` }})
       // .then(response => console.log(response))
-      axios.get(`${API_URL}/api/userprofile`)
-      .then(response=>console.log(response))
+      // axios.get(`${API_URL}/api/userprofile`)
+      // .then(response=>console.log(response))
 
         // axios.post(`${API_URL}/auth/signup`, requestBody)
         //   .then((response) => {

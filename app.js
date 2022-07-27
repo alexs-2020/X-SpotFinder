@@ -18,10 +18,6 @@ require("./config")(app);
 const path = require('path');
 app.use(express.static(path.join(__dirname, "/client/build")));
 
-app.use((req, res) => {
-  // If no routes match, send them the React HTML.
-  res.sendFile(__dirname + "/client/build/index.html");
-});
 
 // 👇 Start handling routes here
 // Contrary to the views version, all routes are controlled from the routes/index.js
@@ -40,7 +36,13 @@ app.use("/auth", authRouter);
 const userRoute = require("./routes/user.routes");
 app.use("/api", userRoute);
 
-                          
+         
+
+
+app.use((req, res) => {
+    // If no routes match, send them the React HTML.
+    res.sendFile(__dirname + "/client/build/index.html");
+  });
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 
 require("./error-handling")(app);

@@ -14,33 +14,31 @@ function LoginPage(props) {
   const [errorMessage, setErrorMessage] = useState(undefined);
   
   const navigate = useNavigate();
-  const { storeToken } = useContext(AuthContext); 
+  const { storeToken, verifyStoredToken } = useContext(AuthContext)
 
   const handleUserName = (e) => setUserName(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
   
   const handleLoginSubmit = (e) => {
-    e.preventDefault()
-		const requestBody = { username, password }
-		axios.post('/api/auth/login', requestBody)
-			.then(response => {
-				// redirect to projects
-				console.log('i have a token mothafukkas')
-				const token = response.data.authToken
-				// store the token
-				storeToken(token)
-				verifyStoredToken()
-					.then(() => {
-						// redirect to projects
-						navigate('/feed')
-					})
+    e.preventDefault();
+    const requestBody = { username, password };
+ 
+    axios.post(`${API_URL}/auth/login`, requestBody)
+		.then(response => {
+			// redirect to projects
+			console.log('i have a token mothafukkas')
+			const token = response.data.authToken
+			// store the token
+			storeToken(token)
+			verifyStoredToken()
+				.then(() => {
+					// redirect to projects
+					navigate('/feed')
+				})
 			})
-			.catch(err => {
-				const errorDescription = err.response.data.message
-				setErrorMessage(errorDescription)
-			})
-	}
+			
+  };
   
   return (
     <div className="LoginPage">
