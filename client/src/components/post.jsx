@@ -10,8 +10,6 @@ const API_URL = "http://localhost:5005";
         const [posts, setPosts] = useState([]); 
         const getAllPosts = () => {
             const storedToken = localStorage.getItem("authToken");
-
-            console.log(storedToken)
             axios
             .get(`${API_URL}/api/posts`, { headers: { Authorization: `Bearer ${storedToken}` } })
             .then((response) => {
@@ -25,7 +23,7 @@ const API_URL = "http://localhost:5005";
         
             return(
                 <div className="PostsList">
-                <AddPost  refreshPosts={getAllPosts}/>
+                    <AddPost  refreshPosts={getAllPosts}/>
                     {posts.map((post) => {
                         return (
                             <div key={post._id} >

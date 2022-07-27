@@ -21,22 +21,26 @@ function LoginPage(props) {
 
   
   const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    const requestBody = { username, password };
- 
-    axios.post(`${API_URL}/auth/login`, requestBody)
-      .then((response) => {
-      // Request to the server's endpoint `/auth/login` returns a response
-      // with the JWT string ->  response.data.authToken
-      //console.log('JWT token', response.data.authToken );
-      storeToken(response.data.authToken);   
-      navigate('/');        
-      })
-      .catch((error) => {
-        //const errorDescription = error.response.data.message;
-        //setErrorMessage(errorDescription);
-      })
-  };
+    e.preventDefault()
+		const requestBody = { username, password }
+		axios.post('/api/auth/login', requestBody)
+			.then(response => {
+				// redirect to projects
+				console.log('i have a token mothafukkas')
+				const token = response.data.authToken
+				// store the token
+				storeToken(token)
+				verifyStoredToken()
+					.then(() => {
+						// redirect to projects
+						navigate('/feed')
+					})
+			})
+			.catch(err => {
+				const errorDescription = err.response.data.message
+				setErrorMessage(errorDescription)
+			})
+	}
   
   return (
     <div className="LoginPage">

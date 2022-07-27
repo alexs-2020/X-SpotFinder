@@ -10,10 +10,19 @@
 .navbar {
   background-color: rgb(68, 68, 68);
   float: left;
-  justify-content:center;
+  /* justify-content:center; */
   text-align: center;
   width: 25vw;
   height: 100vh;
+}
+.navbar button {
+   font-size: 30px;
+}
+.navbar ul{
+  margin-top: 50px; 
+}
+.navbar li {
+  margin: 30px;
 }
 .scroll-div {
   border-radius: 10px;

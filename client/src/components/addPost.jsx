@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { useContext } from "react";                     // <== IMPORT 
+import { AuthContext } from "../context/auth.context";
 const API_URL = "http://localhost:5005";
 
 
 function AddPost(props) {
+  const { user } = useContext(AuthContext);   // <== ADD
   const [name, setName] = useState("");
   const [img, setImg] = useState('')
   //const [url, setURL]= useState('')
@@ -24,7 +26,6 @@ function AddPost(props) {
     .then((response) => {
           //setURL(response.data.secure_url)
       const requestBody = { name, url:response.data.secure_url, description };
-      
       axios
         .post(`${API_URL}/api/posts`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` }})
         .then((response) => {
@@ -36,6 +37,24 @@ function AddPost(props) {
           props.refreshPosts(); 
         })
         .catch((error) => console.log(error));
+  
+      // axios.post(`${API_URL}/userprofile`, {pic:response.data.secure_url}, { headers: { Authorization: `Bearer ${storedToken}` }})
+      // .then(response => console.log(response))
+      axios.get(`${API_URL}/api/userprofile`)
+      .then(response=>console.log(response))
+
+        // axios.post(`${API_URL}/auth/signup`, requestBody)
+        //   .then((response) => {
+        //     navigate('/login');
+        //   })
+        //   .catch((error) => {
+        //     const errorDescription = error.response.data.message;
+        //     setErrorMessage(errorDescription);
+        //   })
+      // };
+
+
+
 
       })
     .catch((error) => console.log(error));
@@ -65,7 +84,7 @@ function AddPost(props) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-
+        <h1>{user.username}</h1>
         <button type="submit">Submit</button>
       </form>
     </div>

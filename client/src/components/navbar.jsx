@@ -2,36 +2,44 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";                     // <== IMPORT 
 import { AuthContext } from "../context/auth.context";  // <== IMPORT
+import { useEffect } from "react";
+
+
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
-  const { isLoggedIn, user, logoutUser } = useContext(AuthContext);   // <== ADD
+  const { isLoggedIn, user, logoutUser, isLoading } = useContext(AuthContext);   // <== ADD
 
-  
-  //  Update the rendering logic to display different content 
-  //  depending on the user being logged in or not
-  return (
+
+  return ( 
+
     <nav className="navbar">
-      <Link to="/">
-        <button>Home</button>
-      </Link>
-
+    <ul className="navlist">
+     
+      <li> <Link to="/">
+      <button>Home</button>
+    </Link></li>
      
       {isLoggedIn && (
         <>
+        <li>
           <Link to="/feed">
             <button>Feed</button>
-          </Link>    
-          <Link to="/map">
-            <button>Map</button>
-          </Link>      
-           <Link to='/'>
-          <button onClick={logoutUser}>Logout</button>
-          <span>{user && user.name}</span>
           </Link>  
+        </li>
+        <li>
+           <Link to="/map">
+            <button>Map</button>
+           </Link>  
+        </li> 
+        <li>
+          <Link to='/'>
+            <button onClick={logoutUser}>Logout</button>
+            <span>{user && user.username}</span>
+          </Link>  
+        </li>    
         </>
-
       )}
       {!isLoggedIn && (
         <>
@@ -39,8 +47,9 @@ function Navbar() {
           <Link to="/login"> <button>Login</button> </Link>
         </>
       )}
+    </ul>
     </nav>
   );
-}
 
+      }
 export default Navbar;

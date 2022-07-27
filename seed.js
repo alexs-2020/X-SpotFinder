@@ -20,24 +20,29 @@ const posts = [
 
 const local = [
 	{
-		title: 'notweiner',
-        city: "monke"   
+		title: 'local',
+        city: "monke",
+		location:{
+			long: -70.9,
+			lat: 41
+		}
+		
     	},
 ]
 
-User.create(users)
-	.then(localsFromDB => {
-		console.log(`${localsFromDB.length} celebrities got created`)
-		mongoose.connection.close()
-	})
-	.catch(err => console.log(err))
+// User.create(users)
+// 	.then(localsFromDB => {
+// 		console.log(`${localsFromDB.length} celebrities got created`)
+// 		mongoose.connection.close()
+// 	})
+// 	.catch(err => console.log(err))
 
-Post.create(posts)
-	.then(localsFromDB => {
-		console.log(`${localsFromDB.length} celebrities got created`)
-		mongoose.connection.close()
-	})
-	.catch(err => console.log(err))
+// Post.create(posts)
+// 	.then(localsFromDB => {
+// 		console.log(`${localsFromDB.length} celebrities got created`)
+// 		mongoose.connection.close()
+// 	})
+// 	.catch(err => console.log(err))
 	
 
 	Location.create(local)

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Location = require("../models/Location")
 
 router.post('/locations', (req, res, next) => {
-    const { title, img, city } = req.body;
+    const { title, img, city, location } = req.body;
 
     Location.create(req.body)
     .then(response => res.json(response))
