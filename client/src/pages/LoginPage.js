@@ -15,7 +15,7 @@ function LoginPage(props) {
   
   const navigate = useNavigate();
   const { storeToken, verifyStoredToken } = useContext(AuthContext)
-
+  const storedToken = localStorage.getItem('authToken');
   const handleUserName = (e) => setUserName(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
