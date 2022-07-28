@@ -34,6 +34,11 @@ function Navbar() {
            </Link>  
         </li> 
         <li>
+           <Link to="/profile">
+            <button>Profile</button>
+           </Link>  
+        </li> 
+        <li>
           <Link to='/'>
             <button onClick={logoutUser}>Logout</button>
             <span>{user && user.username}</span>

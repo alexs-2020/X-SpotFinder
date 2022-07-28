@@ -38,24 +38,10 @@ function AddPost(props) {
         })
         .catch((error) => console.log(error));
   
-      // axios.post(`${API_URL}/userprofile`, {pic:response.data.secure_url}, { headers: { Authorization: `Bearer ${storedToken}` }})
-      // .then(response => console.log(response))
-      // axios.get(`${API_URL}/api/userprofile`)
-      // .then(response=>console.log(response))
-
-        // axios.post(`${API_URL}/auth/signup`, requestBody)
-        //   .then((response) => {
-        //     navigate('/login');
-        //   })
-        //   .catch((error) => {
-        //     const errorDescription = error.response.data.message;
-        //     setErrorMessage(errorDescription);
-        //   })
-      // };
-
-
-
-
+      axios
+      .post(`${API_URL}/api/users/${user._id}/uploads`, {uploads:response.data.secure_url}, { headers: { Authorization: `Bearer ${storedToken}` }})
+      .then(response => console.log(response))
+      .catch((error) => console.log(error));
       })
     .catch((error) => console.log(error));
   };

@@ -8,7 +8,7 @@ import LoginPage from "./pages/LoginPage"
 import IsPrivate from "./components/IsPrivate";  // <== IMPORT
 import IsAnon from "./components/IsAnon";  // <== IMPORT
 import Locals from "./components/locations"
-
+import Profile from "./pages/profile"
 function App() {
   return (
     <div className="App">
@@ -19,6 +19,7 @@ function App() {
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/map" element={<IsPrivate> <Locals /> </IsPrivate>} />
+        <Route path="/profile" element={<IsPrivate> <Profile /> </IsPrivate>} />
       </Routes>
     </div>
   );

@@ -24,6 +24,9 @@ app.use(express.static(path.join(__dirname, "/client/build")));
 const allRoutes = require("./routes/index.routes");
 app.use("/api", isAuthenticated, allRoutes);
 
+const userRoute = require("./routes/user.routes");
+app.use("/api", isAuthenticated, userRoute);
+
 const postsRouter = require('./routes/posts.routes');     // <== IMPORT
 app.use('/api', isAuthenticated, postsRouter); 
 
@@ -33,8 +36,7 @@ app.use('/api', isAuthenticated, locationRouter);
 const authRouter = require("./routes/auth.routes");          //  <== IMPORT
 app.use("/auth", authRouter);   
 
-const userRoute = require("./routes/user.routes");
-app.use("/api", userRoute);
+
 
          
 

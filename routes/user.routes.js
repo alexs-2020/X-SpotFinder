@@ -1,29 +1,22 @@
 const router = require("express").Router();
 const User = require("../models/User.model")
 
-router.post('/user', (req, res, next) => {
-    const { pic } = req.body;
-
-    User.create(req.body)
-    .then(response => res.json(response))
-    .catch(err => res.json(err));
-});
-
-  router.get('/users', (req,res) =>{
-    User.find()
-    .then((localsFromDB) => {
-      res.json({ Locations: localsFromDB })
-    })
-    .catch(error => console.log(error));
-  })
-
-  
-router.get('/userProfile', (req,res)=>{
-    let username = req.session.currentUser.username
-    console.log(req.session.currentUser)
-    User.findOne({username})
+router.post('/users/:id/uploads', (req, res)=>{
+    let url = req.body.uploads
+    let id = req.params.id
+    console.log(id)
+    User.findByIdAndUpdate(id, {$push: {uploads: url }})
     .then(user =>{ 
-      res.render('userProfile', { user });
+        res.json(user)
+    })
+  })
+  
+router.get('/users/:id', (req, res)=>{
+    let id = req.params.id
+    console.log(id)
+    User.findById(id)
+    .then(user =>{ 
+        res.json(user)
     })
   })
 
