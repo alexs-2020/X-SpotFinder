@@ -10,7 +10,8 @@ export default function Home (){
         <Navbar />
         <Link to="/feed"><h1> To feed </h1></Link> 
             <h1>we made it</h1>
-            
+
+          
         </div>
     )
 }

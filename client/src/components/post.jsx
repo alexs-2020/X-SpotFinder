@@ -25,13 +25,11 @@ const API_URL = "http://localhost:5005";
                 <div className="PostsList">
                     <AddPost  refreshPosts={getAllPosts}/>
                     {posts.map((post) => {
-                        return (
-                            <div key={post._id} >
-                                <img src={post.url} />
-                                <h3>{post.name}</h3>
-                                <p> {post.description} </p>
-                            </div>
-                        );
+                        return(
+                            post.url.slice(post.url.length-3) === 'mp4' ?   <video width="320" height="240" controls>
+                            <source src={post.url} type="video/mp4"/>
+                            </video>  : <div key={post._id} ><img src={post.url} /><h3>{post.name}</h3><p> {post.description} </p></div>
+                        )
                     })}     
                 </div>
             );

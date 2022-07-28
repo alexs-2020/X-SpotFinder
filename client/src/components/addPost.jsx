@@ -20,7 +20,29 @@ function AddPost(props) {
     const formData = new FormData()
     formData.append('file', img)
     formData.append("upload_preset", "bf6brdmh")
-   
+   console.log(img.type)
+   function video(){
+    axios
+    .post("https://api.Cloudinary.com/v1_1/adsapiberlin/video/upload", formData)
+    .then((response) => {
+          //setURL(response.data.secure_url)
+      const requestBody = { name, url:response.data.secure_url, description };
+      axios
+        .post(`/api/posts`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` }})
+        .then((response) => {
+          // Reset the state
+        //  console.log(response)
+          setName("");
+          setDescription("");
+          setImg("")
+          props.refreshPosts(); 
+        })
+        .catch((error) => console.log(error));
+    }
+  )}
+
+
+    img.type === "video/mp4" ? video() : 
     axios
     .post("https://api.Cloudinary.com/v1_1/adsapiberlin/image/upload", formData)
     .then((response) => {
@@ -37,6 +59,7 @@ function AddPost(props) {
           props.refreshPosts(); 
         })
         .catch((error) => console.log(error));
+
   
       axios
       .post(`/api/users/${user._id}/uploads`, {uploads:response.data.secure_url}, { headers: { Authorization: `Bearer ${storedToken}` }})
