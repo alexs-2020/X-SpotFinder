@@ -23,18 +23,19 @@ import Mapbox from "../pages/map"
         }, [] );
         
             return(
-                
-                <div className="LocalList" >
+                <div >
                 <Mapbox refreshLocals={getAllLocals} />
-                    {locations.map((location) => {
-                        return (
-                            <div> 
-                                <h2>{location.title}</h2>
-                                <img src={location.img} />
-                                <p>{location.city}</p>
-                            </div>
-                        );
-                    })}     
+                    <div className="LocalList">
+                        {locations.map((location) => {
+                            return (
+                                <div className="location"> 
+                                    <h2>{location.title}</h2>
+                                    <img src={location.img} />
+                                    <p>{location.city}</p>
+                                </div>
+                            );
+                        })}     
+                    </div>
                 </div>
             );
     }

@@ -8,7 +8,7 @@ export default function Feed(){
             <Navbar />
             <div className="scroll-div">
                 <div className="scroll-obj">
-                    <h1>weiner</h1>
+                    <h1>Feed</h1>
                     <Posts />
                 </div>
             </div> 

@@ -88,22 +88,25 @@ const getMarkers = () => {
 
 
      return (
-    <div>
+    <div className="contentTop">
         <Navbar />
         <div className="sidebar">
             Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>  
+ 
         <div ref={mapContainer} className="map-container" />
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="title"  placeholder="Spot Name" value={title}
-            onChange={(e) => setTitle(e.target.value)}/>
-            <input type="text" name="img"  placeholder="Image URL" value={img}
-            onChange={(e) => setImg(e.target.value)}/>
-            <input type="text" name="city"  placeholder="Closest City" value={city}
-            onChange={(e) => setCity(e.target.value)}/>
-            <input value={location.long} step="0.0000000000000001" name="location.long" id="long"/>
-            <input value={location.lat} step="0.0000000000000001" name="location.lat" id="lat"/>
-            <button type="submit" >Create Spot</button>
+        <form className="mapSubmit" onSubmit={handleSubmit}>
+            <ul> 
+            <li><input type="text" name="title"  placeholder="Spot Name" value={title}
+            onChange={(e) => setTitle(e.target.value)}/></li>
+            <li> <input type="text" name="img"  placeholder="Image URL" value={img}
+            onChange={(e) => setImg(e.target.value)}/></li>
+            <li><input type="text" name="city"  placeholder="Closest City" value={city}
+            onChange={(e) => setCity(e.target.value)}/></li>
+            <input type="hidden" value={location.long} step="0.0000000000000001" name="location.long" id="long"/>
+            <input type="hidden" value={location.lat} step="0.0000000000000001" name="location.lat" id="lat"/>
+            <li><button type="submit" >Create Spot</button></li>
+            </ul>
         </form>
     </div>
   );

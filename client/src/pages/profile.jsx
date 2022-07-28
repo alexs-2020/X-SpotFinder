@@ -24,18 +24,23 @@ useEffect(()=>{
 
 console.log(uploads)
     return (
-        <div className="feedcontainer">
+        <div className='profile'>
             <Navbar />
-           <h1>this is the profile</h1>
-           <p>{user.username}</p>
-           {uploads ?.map((url)=>{
-            return (
-                <div>
-                    <img src={url} />
+            <div>
+                <div className="profiletop">
+                    <h3>Profile</h3>
+                    <h1>{user.username}</h1> 
                 </div>
-            )
-       })}
-          
+                <div className="profilecontent">
+                    {uploads ?.map((url)=>{
+                        return (
+                            
+                                <img src={url} />
+                        
+                        )
+                        })}
+                </div>
+           </div>
         </div>
         )
 }

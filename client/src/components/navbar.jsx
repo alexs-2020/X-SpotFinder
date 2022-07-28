@@ -41,7 +41,7 @@ function Navbar() {
         <li>
           <Link to='/'>
             <button onClick={logoutUser}>Logout</button>
-            <span>{user && user.username}</span>
+            
           </Link>  
         </li>    
         </>
@@ -58,3 +58,7 @@ function Navbar() {
 
       }
 export default Navbar;
+
+
+
+//<span>{user && user.username}</span>

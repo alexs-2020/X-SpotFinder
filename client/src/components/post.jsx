@@ -28,9 +28,7 @@ const API_URL = "http://localhost:5005";
                         return (
                             <div key={post._id} >
                                 <img src={post.url} />
-                                <Link to={`/posts/${post._id}`}>
-                                    <h3>{post.name}</h3>
-                                </Link>
+                                <h3>{post.name}</h3>
                                 <p> {post.description} </p>
                             </div>
                         );

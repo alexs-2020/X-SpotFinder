@@ -48,8 +48,7 @@ function AddPost(props) {
 
   return (
     <div className="AddProject">
-      <h3>Add Project</h3>
-
+      <h2>Add Project</h2>
       <form onSubmit={handleSubmit}>
         <label>Title:</label>
         <input
@@ -60,7 +59,7 @@ function AddPost(props) {
         /> 
 
         <label>Image:</label>
-        <input type="file" onChange={(e) => setImg(e.target.files[0])}/>
+        <input type="file" className="imgPost" onChange={(e) => setImg(e.target.files[0])}/>
   
 
         <label>Description:</label>
@@ -70,7 +69,6 @@ function AddPost(props) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <h1>{user.username}</h1>
         <button type="submit">Submit</button>
       </form>
     </div>
