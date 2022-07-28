@@ -24,7 +24,7 @@ function LoginPage(props) {
     e.preventDefault();
     const requestBody = { username, password };
  
-    axios.post(`${API_URL}/auth/login`, requestBody)
+    axios.post(`${API_URL}/auth/login`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` }})
 		.then(response => {
 			// redirect to projects
 			console.log('i have a token mothafukkas')
