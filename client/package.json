@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5005",
   "dependencies": {
     "@cloudinary/react": "^1.4.1",
     "@cloudinary/url-gen": "^1.8.0",

@@ -11,7 +11,7 @@ const API_URL = "http://localhost:5005";
         const getAllPosts = () => {
             const storedToken = localStorage.getItem("authToken");
             axios
-            .get(`${API_URL}/api/posts`, { headers: { Authorization: `Bearer ${storedToken}` } })
+            .get(`/api/posts`, { headers: { Authorization: `Bearer ${storedToken}` } })
             .then((response) => {
                 setPosts(response.data.Posts)})
             .catch((error) => console.log(error));   

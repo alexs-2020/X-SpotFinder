@@ -27,7 +27,7 @@ function AddPost(props) {
           //setURL(response.data.secure_url)
       const requestBody = { name, url:response.data.secure_url, description };
       axios
-        .post(`${API_URL}/api/posts`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` }})
+        .post(`/api/posts`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` }})
         .then((response) => {
           // Reset the state
         //  console.log(response)
@@ -39,7 +39,7 @@ function AddPost(props) {
         .catch((error) => console.log(error));
   
       axios
-      .post(`${API_URL}/api/users/${user._id}/uploads`, {uploads:response.data.secure_url}, { headers: { Authorization: `Bearer ${storedToken}` }})
+      .post(`/api/users/${user._id}/uploads`, {uploads:response.data.secure_url}, { headers: { Authorization: `Bearer ${storedToken}` }})
       .then(response => console.log(response))
       .catch((error) => console.log(error));
       })

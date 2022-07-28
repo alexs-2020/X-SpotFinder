@@ -53,7 +53,7 @@ export default function Mapbox(props){
 const getMarkers = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
-    .get(`${API_URL}/api/locations`, { headers: { Authorization: `Bearer ${storedToken}` } })
+    .get(`/api/locations`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then(responseFromApi => {
         let cords = responseFromApi.data.Locations
         cords.forEach(exactCoords => {
@@ -75,7 +75,7 @@ const getMarkers = () => {
         const storedToken = localStorage.getItem('authToken');
         const requestBody = { title, img, city, location };
         console.log(requestBody)
-        axios.post(`${API_URL}/api/locations`, requestBody,{ headers: { Authorization: `Bearer ${storedToken}` }})
+        axios.post(`/api/locations`, requestBody,{ headers: { Authorization: `Bearer ${storedToken}` }})
         .then((response) => {
             setTitle("");
             setImg("");
