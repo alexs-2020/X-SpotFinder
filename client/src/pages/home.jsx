@@ -9,7 +9,7 @@ export default function Home (){
         <div>
         <Navbar />
         <Link to="/feed"><h1> To feed </h1></Link> 
-            <h1>we made it</h1>
+            <h1>Welcome to the Final Extreme Sport Social Media App!!</h1>
 
           
         </div>
