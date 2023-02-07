@@ -24,7 +24,7 @@ function LoginPage(props) {
     e.preventDefault();
     const requestBody = { username, password };
  
-    axios.post(`/auth/login`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` }})
+    axios.post(`${API_URL}/auth/login`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` }})
 		.then(response => {
 			// redirect to projects
 			console.log('i have a token mothafukkas')
@@ -42,10 +42,10 @@ function LoginPage(props) {
   
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+      <h2>Login</h2>
 
       <form onSubmit={handleLoginSubmit}>
-        <label>username:</label>
+        <label>Username:</label>
         <input 
           type="username"
           name="username"
@@ -66,7 +66,7 @@ function LoginPage(props) {
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/signup"}>Sign Up</Link>
     </div>
   )
 }

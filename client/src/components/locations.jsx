@@ -12,7 +12,7 @@ import Mapbox from "../pages/map"
             const storedToken = localStorage.getItem("authToken");
             console.log(storedToken)
             axios
-            .get(`/api/locations`, { headers: { Authorization: `Bearer ${storedToken}` } })
+            .get(`${API_URL}/api/locations`, { headers: { Authorization: `Bearer ${storedToken}` } })
             .then((response) => {
                 setLocations(response.data.Locations)})
             .catch((error) => console.log(error));   

@@ -24,9 +24,9 @@ const handleSignupSubmit = (e) => {
     // Make an axios request to the API
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
-    axios.post(`/auth/signup`, requestBody)
+    axios.post(`${API_URL}/auth/signup`, requestBody)
       .then((response) => {
-        navigate('/login');
+        navigate('/');
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -62,7 +62,7 @@ const handleSignupSubmit = (e) => {
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
       <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <Link to={"/"}> Login</Link>
     </div>
   )
 }

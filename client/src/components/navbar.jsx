@@ -11,16 +11,10 @@ function Navbar() {
   // the values from AuthContext.Provider `value` prop
   const { isLoggedIn, user, logoutUser, isLoading } = useContext(AuthContext);   // <== ADD
 
-
   return ( 
-
     <nav className="navbar">
-    <ul className="navlist">
-     
-      <li> <Link to="/">
-      <button>Home</button>
-    </Link></li>
-     
+    <ul>
+          
       {isLoggedIn && (
         <>
         <li>
@@ -48,8 +42,8 @@ function Navbar() {
       )}
       {!isLoggedIn && (
         <>
-          <Link to="/signup"> <button>Sign Up</button> </Link>
-          <Link to="/login"> <button>Login</button> </Link>
+          <li><Link to="/signup"> <button>Sign Up</button> </Link></li>
+          <li><Link to="/login"> <button>Login</button> </Link></li>
         </>
       )}
     </ul>

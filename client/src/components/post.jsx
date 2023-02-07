@@ -11,7 +11,7 @@ const API_URL = "http://localhost:5005";
         const getAllPosts = () => {
             const storedToken = localStorage.getItem("authToken");
             axios
-            .get(`/api/posts`, { headers: { Authorization: `Bearer ${storedToken}` } })
+            .get(`${API_URL}/api/posts`, { headers: { Authorization: `Bearer ${storedToken}` } })
             .then((response) => {
                 setPosts(response.data.Posts)})
             .catch((error) => console.log(error));   
@@ -26,7 +26,7 @@ const API_URL = "http://localhost:5005";
                     <AddPost  refreshPosts={getAllPosts}/>
                     {posts.map((post) => {
                         return(
-                            post.url.slice(post.url.length-3) === 'mp4' ?  <div> <video width="800" controls><source src={post.url} type="video/mp4"/></video> <h3>{post.name}</h3><p> {post.description} </p></div> : <div key={post._id} ><img src={post.url} /><h3>{post.name}</h3><p> {post.description} </p></div>
+                            post.url.slice(post.url.length-3) === 'mp4' ?  <div className="postDes"><video width="800" controls><source src={post.url} type="video/mp4"/></video> <h3>{post.name}</h3><p> {post.description} </p></div> : <div key={post._id} ><img src={post.url} /><h3>{post.name}</h3><p> {post.description} </p></div>
                         )
                     })}     
                 </div>

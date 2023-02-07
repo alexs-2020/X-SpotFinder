@@ -1,6 +1,4 @@
 const router = require("express").Router();
-
-
 const Post = require("../models/Post")
 
 router.post('/posts', (req, res, next) => {

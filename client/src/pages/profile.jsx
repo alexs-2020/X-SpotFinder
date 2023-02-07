@@ -10,7 +10,7 @@ export default function Profile(){
     const [userProf, setUserProf ] = useState(user)
 
 useEffect(()=>{
-    axios.get(`/api/users/${user._id}`, { headers: { Authorization: `Bearer ${storedToken}` }})
+    axios.get(`${API_URL}/api/users/${user._id}`, { headers: { Authorization: `Bearer ${storedToken}` }})
     .then((response) => {
         setUserProf(response.data)
         console.log(response.data.uploads)
