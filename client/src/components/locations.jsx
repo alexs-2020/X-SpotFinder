@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 const API_URL = "http://localhost:5005";
 import Mapbox from "../pages/map"
+import Navbar from '../components/navbar'
 
     export default function Locals(){
         const [locations, setLocations] = useState([]); 
@@ -23,18 +24,21 @@ import Mapbox from "../pages/map"
         }, [] );
         
             return(
-                <div >
-                <Mapbox refreshLocals={getAllLocals} />
-                    <div className="LocalList">
-                        {locations.map((location) => {
-                            return (
-                                <div className="location"> 
-                                    <h2>{location.title}</h2>
-                                    <img src={location.img} />
-                                    <p>{location.city}</p>
-                                </div>
-                            );
-                        })}     
+                <div>
+                    <Navbar />
+                    <div className="mapAndSpots">
+                        <Mapbox refreshLocals={getAllLocals} />
+                           <div className="LocalList">
+                               {locations.map((location) => {
+                                   return (
+                                       <div className="location"> 
+                                           <h2>{location.title}</h2>
+                                           <img src={location.img} />
+                                           <p>{location.city}</p>
+                                       </div>
+                                   );
+                               })}     
+                        </div>
                     </div>
                 </div>
             );

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Navbar from "../components/navbar";
 import { useContext } from "react";                     // <== IMPORT 
 import { AuthContext } from "../context/auth.context";
 const API_URL = "http://localhost:5005";
 
 
-function AddPost(props) {
+function NewPost(props) {
   const { user } = useContext(AuthContext);   // <== ADD
   const [name, setName] = useState("");
   const [img, setImg] = useState('')
@@ -70,32 +71,35 @@ function AddPost(props) {
   };
 
   return (
-    <div className="AddProject">
-      <h2>Add Project</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Title:</label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        /> 
+    <div> 
+        <Navbar />
+        <div className="AddPost">
+            <h2>New Post</h2>
+            <form onSubmit={handleSubmit}>
+                <label>Title:</label>
+                <input
+                type="text"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                /> 
 
-        <label>Image:</label>
-        <input type="file" className="imgPost" onChange={(e) => setImg(e.target.files[0])}/>
-  
-
-        <label>Description:</label>
-        <textarea
-          type="text"
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
+                <label>Image:</label>
+                <input type="file" className="imgPost" onChange={(e) => setImg(e.target.files[0])}/>
+        
+                <label>Description:</label>
+                <textarea
+                type="text"
+                name="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
+    
   );
 }
 
-export default AddPost;
+export default NewPost;

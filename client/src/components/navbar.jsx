@@ -33,6 +33,11 @@ function Navbar() {
            </Link>  
         </li> 
         <li>
+        <Link to="/newPost">
+         <button>New Post</button>
+        </Link>  
+     </li> 
+        <li>
           <Link to='/'>
             <button onClick={logoutUser}>Logout</button>
             
