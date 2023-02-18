@@ -62,7 +62,7 @@ const handleSignupSubmit = (e) => {
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
       <p>Already have account?</p>
-      <Link to={"/"}> Login</Link>
+      <Link to={"/login"}> Login</Link>
     </div>
   )
 }

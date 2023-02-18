@@ -1,5 +1,4 @@
 import './App.css';
-import Home from "./pages/home"
 import Feed from "./pages/feed"
 import { Routes, Route } from "react-router-dom";
 import Posts from "./components/post"
@@ -14,12 +13,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<IsAnon> <LoginPage /> </IsAnon>} />
-        <Route path="/feed" element={<Feed />}/>
-        <Route path="/posts" element={ <IsPrivate> <Posts/> </IsPrivate> } />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
+        <Route path='/feed' element={<IsPrivate><Feed /> </IsPrivate>} />
         <Route path="/newPost" element={<IsPrivate> <NewPost/> </IsPrivate> } />
-        <Route path="/map" element={<IsPrivate> <Locals /> </IsPrivate>} />
+        <Route path="/map" element={<IsPrivate><Locals /></IsPrivate>} />
         <Route path="/profile" element={<IsPrivate> <Profile /> </IsPrivate>} />
       </Routes>
     </div>

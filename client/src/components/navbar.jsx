@@ -14,7 +14,6 @@ function Navbar() {
   return ( 
     <nav className="navbar">
     <ul>
-          
       {isLoggedIn && (
         <>
         <li>
@@ -33,31 +32,41 @@ function Navbar() {
            </Link>  
         </li> 
         <li>
-        <Link to="/newPost">
-         <button>New Post</button>
-        </Link>  
-     </li> 
+          <Link to="/newPost">
+          <button>New Post</button>
+          </Link>  
+        </li> 
         <li>
           <Link to='/'>
             <button onClick={logoutUser}>Logout</button>
-            
           </Link>  
         </li>    
         </>
       )}
       {!isLoggedIn && (
         <>
-          <li><Link to="/signup"> <button>Sign Up</button> </Link></li>
-          <li><Link to="/login"> <button>Login</button> </Link></li>
+        <li>
+          <Link to="/">
+            <button>Feed</button>
+          </Link>  
+        </li>
+        <li>
+           <Link to="/map">
+            <button>Map</button>
+           </Link>  
+        </li> 
+        <li>
+          <Link to="/signup"> <button>Sign Up</button> </Link></li>
+        <li>
+          <Link to="/login"> <button>Login</button> </Link>
+        </li>
         </>
       )}
     </ul>
     </nav>
-  );
-
-      }
+  );}
 export default Navbar;
 
 
 
-//<span>{user && user.username}</span>
+// <span>{user && user.username}</span>

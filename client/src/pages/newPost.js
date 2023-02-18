@@ -21,7 +21,7 @@ function NewPost(props) {
     const formData = new FormData()
     formData.append('file', img)
     formData.append("upload_preset", "bf6brdmh")
-   console.log(img.type)
+  //  console.log(img.type)
    function video(){
     axios
     .post("https://api.Cloudinary.com/v1_1/adsapiberlin/video/upload", formData)
@@ -49,6 +49,7 @@ function NewPost(props) {
     .then((response) => {
           //setURL(response.data.secure_url)
       const requestBody = { name, url:response.data.secure_url, description };
+      console.log(requestBody)
       axios
         .post(`/api/posts`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` }})
         .then((response) => {

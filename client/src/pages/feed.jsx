@@ -1,6 +1,8 @@
 import React from "react";
 import Posts from "../components/post"
 import Navbar from "../components/navbar"
+
+
 export default function Feed(){
 
     return (

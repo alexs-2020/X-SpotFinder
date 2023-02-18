@@ -34,7 +34,7 @@ function LoginPage(props) {
 			verifyStoredToken()
 				.then(() => {
 					// redirect to projects
-					navigate('/feed')
+					navigate('/feed') //feed
 				})
 			})
 			
